@@ -1,5 +1,10 @@
 title = "TiKV"
 baseURL = "https://tikv.netlify.com"
+languageCode = "en-us"
 
 [params]
 description = "A distributed transactional key-value database"
+
+[params.font]
+family = "Titillium Web"
+sizes  = [300, 400, 600, 700]

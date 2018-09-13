@@ -1,0 +1,9 @@
+{{- $font       := .Site.Params.font }}
+{{- $fontFamily := $font.family }}
+{{- $fontSizes  := $font.sizes }}
+{{- $fontUrl    := printf "https://fonts.googleapis.com/icon?family=%s:%s" (replace $fontFamily " " "+") (delimit $fontSizes ",") }}
+@import url({{ $fontUrl }})
+
+$font-family-sans-serif: "{{ $fontFamily }}", sans-serif
+
+@import "bootstrap"
