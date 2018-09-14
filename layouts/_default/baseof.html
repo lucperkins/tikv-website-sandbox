@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="{{ .Site.LanguageCode }}" class="has-navbar-fixed-top">
   <head>
     {{ partial "meta.html" . }}
     <title>{{ block "title" . }}{{ .Site.Title }} &ndash; {{ .Site.Params.description }}{{ end }}</title>
     {{ partial "css.html" . }}
   </head>
   <body>
-    <h1>{{ .Site.Title }}</h1>
-
     {{ block "main" . }}{{ end }}
   </body>
 </html>

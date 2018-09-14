@@ -2,8 +2,22 @@
 {{- $fontFamily := $font.family }}
 {{- $fontSizes  := $font.sizes }}
 {{- $fontUrl    := printf "https://fonts.googleapis.com/icon?family=%s:%s" (replace $fontFamily " " "+") (delimit $fontSizes ",") }}
+@charset "utf-8"
 @import url({{ $fontUrl }})
 
-$font-family-sans-serif: "{{ $fontFamily }}", sans-serif
+// TiKV variables
+$tikv-red: #ed1a3b
+$tikv-blue: #353558
 
-@import "bootstrap"
+// Bulma variable overrides
+$red: $tikv-red
+$blue: $tikv-blue
+
+@import "sass/utilities/initial-variables"
+@import "sass/utilities/functions"
+
+$family-sans-serif: "{{ $fontFamily }}", sans-serif
+
+@import "sass/utilities/derived-variables"
+
+@import "bulma"

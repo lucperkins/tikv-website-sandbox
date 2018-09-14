@@ -1,7 +1,7 @@
 {{- $inServerMode := .Site.IsServer }}
 {{- $sass         := "sass/style.sass" }}
 {{- $target       := "css/style.css" }}
-{{- $includes     := (slice "node_modules/bootstrap/scss") }}
+{{- $includes     := (slice "node_modules/bulma") }}
 {{- $cssDevOpts   := (dict "targetPath" $target "includePaths" $includes "enableSourceMap" true) }}
 {{- $cssProdOpts  := (dict "targetPath" $target "includePaths" $includes "outputStyle" "compressed") }}
 {{- $cssOpts      := cond $inServerMode $cssDevOpts $cssProdOpts }}
