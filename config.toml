@@ -11,4 +11,4 @@ family = "Titillium Web"
 sizes  = [300, 400, 600, 700]
 
 [params.logos]
-navbar = "horizontal/color/tikv-horizontal-color.svg"
+navbar = "horizontal/color/tikv-horizontal-color.png"

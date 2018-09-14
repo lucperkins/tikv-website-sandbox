@@ -1,6 +1,14 @@
-{{- $logo := .Site.Params.logos.navbar | relURL }}
+{{- $logo := printf "img/logos/%s" .Site.Params.logos.navbar | relURL }}
 <nav class="navbar is-fixed-top">
   <div class="navbar-brand">
-    <img src="{{ $logo }}">
+    <a class="navbar-item">
+      <img src="{{ $logo }}" alt="TiKV main logo">
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
 </nav>

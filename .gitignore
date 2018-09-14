@@ -1,2 +1,8 @@
+# macOS-specific assets
+.DS_Store
+
+# Yarn-generated assets
 node_modules/
+
+# Hugo-generated assets
 public/
