@@ -1,0 +1,39 @@
+{{- $logo := printf "img/logos/%s" .Site.Params.logos.navbar | relURL }}
+{{- $docs := where .Site.RegularPages "Section" "docs" }}
+<nav class="navbar has-shadow is-fixed-top">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ .Site.BaseURL | relURL }}">
+        <img src="{{ $logo }}" alt="TiKV main logo">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable" href="/docs">
+          <a class="navbar-link">
+            Docs
+          </a>
+
+          <div class="navbar-dropdown is-right">
+            {{- range $docs }}
+            <a class="navbar-item" href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+            {{- end }}
+          </div>
+        </div>
+
+        <a class="navbar-item" href="/blog">
+          Blog
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>

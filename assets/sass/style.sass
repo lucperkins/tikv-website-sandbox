@@ -12,6 +12,8 @@ $tikv-blue: #353558
 // Bulma variable overrides
 $red: $tikv-red
 $blue: $tikv-blue
+$primary: $red
+$secondary: $blue
 $navbar-burger-color: $blue
 
 @import "sass/utilities/initial-variables"
@@ -22,3 +24,9 @@ $family-sans-serif: "{{ $fontFamily }}", sans-serif
 @import "sass/utilities/derived-variables"
 
 @import "bulma"
+
+.is-home-logo
+  @extend .image
+  margin: 0 auto
+  min-width: 40%
+  max-width: 60%

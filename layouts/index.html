@@ -1,2 +1,45 @@
 {{ define "main" }}
+{{- $description := .Site.Params.description }}
+{{- $logo        := printf "img/logos/%s" .Site.Params.logos.home | relURL }}
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns has-text-centered">
+        <div class="column">
+          <p class="title is-spaced">
+            <img class="is-home-logo" src="{{ $logo }}">
+          </p>
+            
+          <p class="subtitle is-size-2 is-size-3-mobile">
+            {{ $description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <nav class="tabs is-boxed is-fullwidth">
+      <div class="container">
+        <ul>
+          <li>
+            <a href="/docs/getting-started">
+              Getting started
+            </a>
+          </li>
+          <li>
+            <a href="/docs">
+              Docs
+            </a>
+          </li>
+          <li>
+            <a href="/blog">
+              Blog
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>
 {{ end }}

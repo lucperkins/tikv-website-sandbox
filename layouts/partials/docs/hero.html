@@ -1,0 +1,34 @@
+{{- $description := .Params.description }}
+{{- $docs := .docs }}
+{{- $currentUrl := .page.URL }}
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title{{ if $description }} is-spaced{{ end }}">
+        {{ .page.Title }}
+      </h1>
+      {{- with $description }}
+      <h2 class="subtitle">
+        {{ . }}
+      </h2>
+      {{- end }}
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <nav class="tabs is-small is-boxed">
+      <div class="container">
+        <ul>
+          {{- range $docs }}
+          {{- $isCurrentPage := eq .URL $currentUrl }}
+          <li{{ if $isCurrentPage }} class="is-active"{{ end }}>
+            <a href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+    </nav>
+  </div>
+</section>

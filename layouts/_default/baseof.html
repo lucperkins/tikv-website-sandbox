@@ -1,3 +1,4 @@
+{{- $isHome := .IsHome }}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   <head>
@@ -5,9 +6,7 @@
     <title>{{ block "title" . }}{{ .Site.Title }} &ndash; {{ .Site.Params.description }}{{ end }}</title>
     {{ partial "css.html" . }}
   </head>
-  <body class="has-navbar-fixed-top">
-    {{ partial "navbar.html" . }}
-
+  <body{{ if not $isHome }} class="has-navbar-fixed-top"{{ end }}>
     {{ block "main" . }}{{ end }}
 
     {{ partial "javascript.html" . }}

@@ -1,0 +1,5 @@
+{{ define "main" }}
+{{- $docs := .Pages }}
+{{ partial "docs/navbar.html" . }}
+{{ partial "docs/hero.html" (dict "docs" $docs "page" .) }}
+{{ end }}
