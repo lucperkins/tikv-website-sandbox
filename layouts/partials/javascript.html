@@ -1,0 +1,8 @@
+{{- $jsFiles := .Site.Params.assets.js }}
+{{- range $jsFiles }}
+{{- $path := printf "js/%s.js" . }}
+{{- $js := resources.Get $path | minify | fingerprint }}
+<script async src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}"></script>
+{{- end }}
+{{- $app := resources.Get "js/app.js" | minify | fingerprint }}
+<script defer src="{{ $app.RelPermalink }}" integrity="{{ $app.Data.Integrity }}"></script>
