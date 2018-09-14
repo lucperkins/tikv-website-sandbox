@@ -4,8 +4,11 @@ languageCode = "en-us"
 
 [params]
 description = "A distributed transactional key-value database"
-favicon = "favicon.png"
+favicon = "tikv-favicon.png"
 
 [params.font]
 family = "Titillium Web"
 sizes  = [300, 400, 600, 700]
+
+[params.logos]
+navbar = "horizontal/color/tikv-horizontal-color.svg"
