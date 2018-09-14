@@ -5,3 +5,7 @@ weight: 1
 ---
 
 Here is some content!
+
+```java
+String s = "foo";
+```

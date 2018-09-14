@@ -1,6 +1,8 @@
 title = "TiKV"
 baseURL = "https://tikv.netlify.com"
 languageCode = "en-us"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
 
 [params]
 description = "A distributed transactional key-value database"
