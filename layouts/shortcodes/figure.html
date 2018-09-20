@@ -1,0 +1,9 @@
+{{- $src := index .Params "src" | relURL }}
+<figure>
+  <img src="{{ $src }}"{{ with (index .Params "alt") }} alt="{{ . }}"{{ end }}>
+  {{- with (index .Params "caption") }}
+  <figcaption>
+    {{ . | markdownify }}
+  </figcaption>
+  {{- end }}
+</figure>

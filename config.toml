@@ -14,7 +14,8 @@ sizes  = [300, 400, 600, 700]
 
 [params.logos]
 navbar = "horizontal/color/tikv-horizontal-color.png"
-home = "horizontal/black/tikv-horizontal-black.png"
+home   = "horizontal/color/tikv-horizontal-color.png"
 
 [params.assets]
-js = ["jquery-3.3.1"]
+js  = ["jquery-3.3.1"]
+css = ["syntax"]

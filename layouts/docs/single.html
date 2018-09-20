@@ -1,11 +1,17 @@
 {{ define "main" }}
 {{- $docs := where .Site.RegularPages "Section" "docs" }}
-{{ partial "docs/navbar.html" . }}
+{{- $tags := .Params.tags }}
+
 {{ partial "docs/hero.html" (dict "docs" $docs "page" .) }}
+
 <section class="section">
   <div class="container">
-    <div class="content">
-      {{ .Content }}
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </div>
     </div>
   </div>
 </section>

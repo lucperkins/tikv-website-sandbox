@@ -8,26 +8,39 @@
 // TiKV variables
 $tikv-red: #ed1a3b
 $tikv-blue: #353558
+$docs-top-margin: 1.5rem
+
+@import "bulma/sass/utilities/initial-variables"
+@import "bulma/sass/utilities/functions"
 
 // Bulma variable overrides
 $red: $tikv-red
 $blue: $tikv-blue
 $primary: $red
 $secondary: $blue
+$link: $red
 $navbar-burger-color: $blue
-
-@import "sass/utilities/initial-variables"
-@import "sass/utilities/functions"
-
 $family-sans-serif: "{{ $fontFamily }}", sans-serif
 
-@import "sass/utilities/derived-variables"
+@import "bulma/sass/utilities/derived-variables"
 
-@import "bulma"
-@import "syntax"
+@import "bulma/bulma"
 
 .is-home-logo
   @extend .image
   margin: 0 auto
   min-width: 40%
-  max-width: 60%
+  max-width: 50%
+
+.is-docs-article
+  margin-top: $docs-top-margin
+
+.has-text-red
+  color: $red
+
+.content
+  figure
+    figcaption
+      font-style: normal
+      font-size: 1.25rem
+      font-weight: bold

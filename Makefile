@@ -1,4 +1,5 @@
 develop:
 	hugo server \
 		--buildDrafts \
-		--buildFuture
+		--buildFuture \
+		--disableFastRender

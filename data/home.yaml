@@ -1,0 +1,5 @@
+features:
+- name: Geo-replication
+  description: Something
+- name: Horizontal scalability
+  description: Something [link](https://google.com)

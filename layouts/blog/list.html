@@ -1,0 +1,50 @@
+{{ define "main" }}
+{{- $posts := .Pages }}
+<section class="hero is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        {{ .Title }}
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-three-quarters">
+        {{- range $posts }}
+        {{- $date := dateFormat "Monday, Jan 2, 2006" .Date }}
+        <div class="card">
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4">
+                  {{ .Title }}
+                </p>
+                <p class="subtitle is-6">
+                  {{ $date }}
+                </p>
+    
+                {{- with .Params.author }}
+                <p class="subtitle is-6">{{ . }}</p>
+                {{- end }}
+              </div>
+            </div>
+        
+            <div class="content">
+              {{- with .Summary }}
+              {{ . | markdownify }}
+              {{- end }}
+            </div>
+          </div>
+        </div>
+        {{- end }}
+      </div>
+      <div class="column is-one-quarter">
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

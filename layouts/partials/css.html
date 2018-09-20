@@ -1,7 +1,8 @@
+{{- $otherCss     := .Site.Params.assets.css }}
 {{- $inServerMode := .Site.IsServer }}
 {{- $sass         := "sass/style.sass" }}
 {{- $target       := "css/style.css" }}
-{{- $includes     := (slice "node_modules/bulma") }}
+{{- $includes     := (slice "node_modules") }}
 {{- $cssDevOpts   := (dict "targetPath" $target "includePaths" $includes "enableSourceMap" true) }}
 {{- $cssProdOpts  := (dict "targetPath" $target "includePaths" $includes "outputStyle" "compressed") }}
 {{- $cssOpts      := cond $inServerMode $cssDevOpts $cssProdOpts }}
@@ -11,4 +12,8 @@
 {{- else }}
 {{- $prodCss := $css | fingerprint }}
 <link rel="stylesheet" href="{{ $prodCss.RelPermalink }}" integrity="{{ $prodCss.Data.Integrity }}">
+{{- end }}
+{{- range $otherCss }}
+{{- $path := printf "css/%s.css" . | relURL }}
+<link rel="stylesheet" href="{{ $path }}">
 {{- end }}

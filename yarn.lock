@@ -2,6 +2,10 @@
 # yarn lockfile v1
 
 
+"@fortawesome/fontawesome-free@^5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-5.3.1.tgz#5466b8f31c1f493a96754c1426c25796d0633dd9"
+
 bulma@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.1.tgz#73c2e3b2930c90cc272029cbd19918b493fca486"
