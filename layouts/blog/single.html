@@ -1,10 +1,19 @@
 {{ define "main" }}
-<section class="hero is-small is-primary">
+{{- $date := dateFormat "Monday, Jan 2, 2006" .Date }}
+<section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
+      <h2 class="title is-2{{ if .Params.author }} is-spaced{{ end }}">
         {{ .Title }}
-      </h1>
+      </h2>
+      {{- with .Params.author }}
+      <span class="subtitle is-4">
+        {{ . }} &ndash;
+      </span>
+      <span class="subtitle is-6">
+        {{ $date }}
+      </span>
+      {{- end }}
     </div>
   </div>
 </section>
@@ -13,7 +22,7 @@
   <div class="container">
     <div class="columns">
       <div class="column">
-        <div class="content">
+        <div class="content is-medium">
           {{ .Content }}
         </div>
       </div>
