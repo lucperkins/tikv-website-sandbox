@@ -16,6 +16,18 @@
       <p class="title is-size-2 is-size-3-touch is-size-4-mobile">
         <span class="has-text-black">{{ .Site.Title }}</span> <span class="has-text-red">:</span> <span class="has-text-grey-darker">{{ $description }}</span>
       </p>
+
+      <div class="buttons has-addons is-centered">
+        <a href="/docs/getting-started" class="button is-large">
+          Getting started
+        </a>
+        <a href="/docs/architecture" class="button is-large">
+          Architecture
+        </a>
+        <a href="/docs" class="button is-large">
+          Other docs
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -23,12 +35,31 @@
 <section class="section">
   <div class="container">
     <div class="columns">
+      {{- range $features }}
       <div class="column">
-
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              {{ .name }}
+            </p>
+            {{- with .icon }}
+            <a href="#" class="card-header-icon">
+              <span class="icon">
+                <i class="fas {{ . }}" aria-hidden="true"></i>
+              </span>
+            </a>
+            {{- end }}
+          </header>
+          {{- with .description }}
+          <div class="card-content">
+            <div class="content">
+              {{ . | markdownify }}
+            </div>
+          </div>
+          {{- end }}
+        </div>
       </div>
-      <div class="column">
-
-      </div>
+      {{- end }}
     </div>
   </div>
 </section>

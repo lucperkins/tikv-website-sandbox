@@ -15,7 +15,9 @@ sizes  = [300, 400, 600, 700]
 [params.logos]
 navbar = "horizontal/color/tikv-horizontal-color.png"
 home   = "horizontal/color/tikv-horizontal-color.png"
+footer = "horizontal/white/tikv-horizontal-white.png"
 
 [params.assets]
+fontAwesomeVersion = "5.3.1"
 js  = ["jquery-3.3.1"]
 css = ["syntax"]

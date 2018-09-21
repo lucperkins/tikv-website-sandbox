@@ -1,0 +1,48 @@
+{{- $logo      := printf "img/logos/%s" .Site.Params.logos.footer | relURL }}
+{{- $docs      := where .Site.RegularPages "Section" "docs" }}
+{{- $blogPosts := where .Site.RegularPages "Section" "blog" }}
+<footer class="footer is-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-third">
+        <img class="image is-footer-image" src="{{ $logo }}">
+      </div>
+
+      <div class="column is-one-third">
+        <h5 class="is-size-5 has-text-weight-bold has-text-white">
+          Docs
+        </h4>
+        
+        <hr class="hr has-background-primary">
+
+        <ul>
+          {{- range $docs }}
+          <li>
+            <a href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+
+      <div class="column is-one-third">
+        <h5 class="is-size-5 has-text-weight-bold has-text-white">
+          Blog
+        </h4>
+
+        <hr class="hr has-background-primary">
+
+        <ul>
+          {{- range $blogPosts }}
+          <li>
+            <a href="{{ .URL }}">
+              {{ .Title }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
