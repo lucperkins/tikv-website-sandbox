@@ -1,30 +1,35 @@
 {{ define "main" }}
-{{- $description := .Site.Params.description | markdownify }}
-{{- $logo        := printf "img/logos/%s" .Site.Params.logos.home | relURL }}
-{{- $features    := .Site.Data.home.features }}
+{{- $shortDesc := .Site.Params.description.brief | markdownify }}
+{{- $longDesc  := .Site.Params.description.long | markdownify }}
+{{- $logo      := printf "img/logos/%s" .Site.Params.logos.home | relURL }}
+{{- $features  := .Site.Data.home.features }}
 <section class="hero">
   <div class="hero-head">
     {{ partial "navbar.html" . }}
   </div>
 
-  <div class="hero-body has-background-white-ter">
+  <div class="hero-body has-background-grey-darker">
     <div class="container has-text-centered">
       <img class="is-home-logo" src="{{ $logo }}">
 
       <br />
 
       <p class="title is-size-2 is-size-3-touch is-size-4-mobile">
-        <span class="has-text-black">{{ .Site.Title }}</span> <span class="has-text-red">:</span> <span class="has-text-grey-darker">{{ $description }}</span>
+        <span class="has-text-white">{{ .Site.Title }}</span> <span class="has-text-red">:</span> <span class="has-text-grey-light">{{ $shortDesc }}</span>
       </p>
 
-      <div class="buttons has-addons is-centered">
-        <a href="/docs/getting-started" class="button is-large">
+      <p class="subtitle is-size-3 is-size-4-mobile has-text-white">
+        {{ $longDesc }}
+      </p>
+
+      <div class="buttons is-centered">
+        <a class="button is-large is-rounded is-primary" href="/docs/getting-started">
           Getting started
         </a>
-        <a href="/docs/architecture" class="button is-large">
+        <a class="button is-large is-rounded is-primary" href="/docs/architecture">
           Architecture
         </a>
-        <a href="/docs" class="button is-large">
+        <a class="button is-large is-rounded is-primary" href="/docs">
           Other docs
         </a>
       </div>

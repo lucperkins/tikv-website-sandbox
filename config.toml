@@ -5,8 +5,11 @@ pygmentsCodeFences = true
 pygmentsUseClasses = true
 
 [params]
-description = "A distributed transactional key-value database"
 favicon = "tikv-favicon.png"
+
+[params.description]
+brief = "A distributed transactional key-value database"
+long = "Based on the design of [Google Spanner](https://ai.google/research/pubs/pub39966) and [HBase](https://hbase.apache.org), but simpler to manage and without dependencies on any distributed filesystem"
 
 [params.font]
 family = "Titillium Web"
@@ -14,10 +17,10 @@ sizes  = [300, 400, 600, 700]
 
 [params.logos]
 navbar = "horizontal/color/tikv-horizontal-color.png"
-home   = "horizontal/color/tikv-horizontal-color.png"
+home   = "horizontal/white/tikv-horizontal-white.png"
 footer = "horizontal/white/tikv-horizontal-white.png"
 
 [params.assets]
 fontAwesomeVersion = "5.3.1"
-js  = ["jquery-3.3.1"]
+js  = ["jquery-3.3.1", "app"]
 css = ["syntax"]
