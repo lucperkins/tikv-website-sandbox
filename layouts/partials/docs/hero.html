@@ -1,11 +1,11 @@
-{{- $docs        := .docs }}
-{{- $description := .page.Params.description }}
-{{- $currentUrl  := .page.URL }}
+{{- $docs        := where .Site.Pages "Section" "docs" }}
+{{- $description := .Params.description }}
+{{- $currentUrl  := .URL }}
 <section class="hero is-small is-primary">
   <div class="hero-body">
     <div class="container">
       <h1 class="title{{ if $description }} is-spaced{{ end }}">
-        {{ .page.Title }}
+        {{ .Title }}
       </h1>
       {{- with $description }}
       <h2 class="subtitle">
@@ -16,7 +16,7 @@
   </div>
 
   <div class="hero-foot">
-    <nav class="tabs is-small is-boxed">
+    <nav class="tabs is-boxed">
       <div class="container">
         <ul>
           {{- range $docs }}

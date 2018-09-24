@@ -1,29 +1,7 @@
 ---
 title: Getting started
-description: Install TiKV in your local environment
-weight: 1
+description: Run TiKV in your local environment using Docker Compose
+weight: 2
 ---
 
-To get started:
-
-```bash
-docker run tikv
-```
-
-Here is some content!
-
-```java
-String s = "foo";
-```
-
-## Here is a larger header
-
-Some content.
-
-### Here is a smaller header
-
-Some content.
-
-#### Here is an even smaller header
-
-Some content.
+This guide describes how to quickly deploy a TiKV testing cluster using Docker Compose on a single machine. Currently, this installation method only supports the Linux system.

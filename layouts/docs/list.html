@@ -1,4 +1,15 @@
 {{ define "main" }}
-{{- $docs := .Pages }}
-{{ partial "docs/hero.html" (dict "docs" $docs "page" .) }}
+{{ partial "docs/hero.html" . }}
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {{ end }}

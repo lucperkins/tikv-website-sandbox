@@ -3,7 +3,7 @@
 {{- $longDesc  := .Site.Params.description.long | markdownify }}
 {{- $logo      := printf "img/logos/%s" .Site.Params.logos.home | relURL }}
 {{- $cncfLogo  := "img/logos/cncf-color.png" | relURL }}
-{{- $features  := .Site.Data.home.features }}
+{{- $features  := .Site.Data.features }}
 <section class="hero">
   <div class="hero-head">
     {{ partial "navbar.html" . }}

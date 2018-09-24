@@ -1,6 +1,7 @@
-{{- $src := index .Params "src" | relURL }}
+{{- $src   := index .Params "src" | relURL }}
+{{- $width := index .Params "width" | default 60 }}
 <figure>
-  <img src="{{ $src }}"{{ with (index .Params "alt") }} alt="{{ . }}"{{ end }}>
+  <img src="{{ $src }}"{{ with (index .Params "alt") }} alt="{{ . }}"{{ end }} width="{{ $width }}%">
   {{- with (index .Params "caption") }}
   <figcaption>
     {{ . | markdownify }}

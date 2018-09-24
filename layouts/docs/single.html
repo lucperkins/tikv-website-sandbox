@@ -1,8 +1,5 @@
 {{ define "main" }}
-{{- $docs := where .Site.RegularPages "Section" "docs" }}
-{{- $tags := .Params.tags }}
-
-{{ partial "docs/hero.html" (dict "docs" $docs "page" .) }}
+{{ partial "docs/hero.html" . }}
 
 <section class="section">
   <div class="container">

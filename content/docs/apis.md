@@ -1,10 +1,10 @@
 ---
 title: APIs
 description: Interact with TiKV using the raw key-value API or the transactional key-value API
-weight: 3
+weight: 4
 ---
 
-## Raw key-value API
+## Raw key-value API {#raw}
 
 The raw key-value API is a simple API that enables you to interact with TiKV
 
@@ -26,4 +26,4 @@ To try out the raw key-value API:
     )
     ```
 
-## Transactional key-value API
+## Transactional key-value API {#transactional}
