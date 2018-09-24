@@ -3,7 +3,7 @@
 {{- $github    := .Site.Params.socialmedia.github }}
 {{- $docs      := where .Site.RegularPages "Section" "docs" }}
 {{- $blogPosts := where .Site.RegularPages "Section" "blog" }}
-<nav class="navbar is-fixed-top{{ if not .IsHome }} has-shadow{{ end }}">
+<nav class="navbar is-fixed-top{{ if .IsHome }} has-background-white-ter{{ else }} has-shadow{{ end }}">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ .Site.BaseURL | relURL }}">
