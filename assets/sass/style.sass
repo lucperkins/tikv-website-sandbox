@@ -33,11 +33,21 @@ $card-shadow: none
 
 @import "bulma/bulma"
 
-.is-home-logo
+=logo($min, $max)
   @extend .image
   margin: 0 auto
-  min-width: 40%
-  max-width: 50%
+  min-width: $min
+  max-width: $max
+
+.is-home-logo
+  +logo(40%, 60%)
+
+.is-cncf-logo
+  +logo(40%, 55%)
+  margin-top: 2rem
+
+.is-footer-image
+  +logo(30%, 35%)
 
 .is-docs-article
   margin-top: $docs-top-margin
@@ -56,10 +66,6 @@ $card-shadow: none
 
   &.is-github
     +branded-button(black)
-
-.section
-  &.is-features-section
-    background-color: $primary
 
 .content
   figure
@@ -81,9 +87,6 @@ $card-shadow: none
 
       &:hover
         color: $grey-light
-
-.is-footer-image
-  max-width: 20%
 
 .page
   display: flex
