@@ -1,5 +1,5 @@
 ---
-title: Second blog post
+title: Newest blog post
 date: 2018-09-15
 author: Some Duderino
 ---

@@ -17,10 +17,14 @@ sizes  = [300, 400, 600, 700]
 
 [params.logos]
 navbar = "horizontal/color/tikv-horizontal-color.png"
-home   = "horizontal/white/tikv-horizontal-white.png"
+home   = "horizontal/black/tikv-horizontal-black.png"
 footer = "horizontal/white/tikv-horizontal-white.png"
 
 [params.assets]
 fontAwesomeVersion = "5.3.1"
 js  = ["jquery-3.3.1", "app"]
 css = ["syntax"]
+
+[params.socialmedia]
+twitter = "tikv"
+github  = "https://github.com/tikv/tikv"

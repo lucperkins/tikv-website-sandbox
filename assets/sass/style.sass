@@ -8,6 +8,9 @@
 @import url({{ $fontUrl }})
 @import url({{ $fontAwesomeUrl }})
 
+// Misc
+$twitter-blue: #1da1f3
+
 // TiKV variables
 $tikv-red: #ed1a3b
 $tikv-blue: #353558
@@ -24,6 +27,7 @@ $secondary: $blue
 $link: $red
 $navbar-burger-color: $blue
 $family-sans-serif: "{{ $fontFamily }}", sans-serif
+$card-shadow: none
 
 @import "bulma/sass/utilities/derived-variables"
 
@@ -40,6 +44,22 @@ $family-sans-serif: "{{ $fontFamily }}", sans-serif
 
 .has-text-red
   color: $red
+
+=branded-button($bgColor)
+  background-color: $bgColor
+  border: none
+  color: white
+
+.button
+  &.is-twitter
+    +branded-button($twitter-blue)
+
+  &.is-github
+    +branded-button(black)
+
+.section
+  &.is-features-section
+    background-color: $primary
 
 .content
   figure

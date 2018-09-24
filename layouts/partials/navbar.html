@@ -1,7 +1,9 @@
 {{- $logo      := printf "img/logos/%s" .Site.Params.logos.navbar | relURL }}
+{{- $twitter   := .Site.Params.socialmedia.twitter }}
+{{- $github    := .Site.Params.socialmedia.github }}
 {{- $docs      := where .Site.RegularPages "Section" "docs" }}
 {{- $blogPosts := where .Site.RegularPages "Section" "blog" }}
-<nav class="navbar has-shadow is-fixed-top">
+<nav class="navbar is-fixed-top{{ if not .IsHome }} has-shadow{{ end }}">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ .Site.BaseURL | relURL }}">
@@ -54,6 +56,39 @@
             <a class="navbar-item" href="/adopters">
               TiKV adopters
             </a>
+          </div>
+        </div>
+
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control">
+              <a class="button is-twitter" target="_blank" href="https://twitter.com/{{ $twitter }}">
+                <span class="icon has-text-white">
+                  <i class="fab fa-twitter"></i>
+                </span>
+                <span>
+                  Twitter
+                </span>
+              </a>
+
+              <a class="button is-github" target="_blank" href="{{ $github }}">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>
+                  GitHub
+                </span>
+              </a>
+
+              <a class="button is-primary" href="/download">
+                <span class="icon is-medium">
+                  <i class="fas fa-cloud-download-alt"></i>
+                </span>
+                <span>
+                  Download
+                </span>
+              </a>
+            </p>
           </div>
         </div>
       </div>
