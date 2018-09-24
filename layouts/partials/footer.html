@@ -1,3 +1,4 @@
+{{- $year      := now.Year }}
 {{- $logo      := printf "img/logos/%s" .Site.Params.logos.footer | relURL }}
 {{- $docs      := where .Site.RegularPages "Section" "docs" }}
 {{- $blogPosts := where .Site.RegularPages "Section" "blog" }}
@@ -59,6 +60,12 @@
           </li>
         </ul>
       </div>
+    </div> <!-- columns -->
+
+    <div class="has-text-centered">
+      <span class="has-text-grey-light">
+        &copy; {{ $year }} TiKV Authors
+      </span>
     </div>
-  </div>
+  </div> <!-- container -->
 </footer>
