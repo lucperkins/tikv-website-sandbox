@@ -28,6 +28,7 @@ $link: $red
 $navbar-burger-color: $blue
 $family-sans-serif: "{{ $fontFamily }}", sans-serif
 $card-shadow: none
+$button-border-color: none
 
 @import "bulma/sass/utilities/derived-variables"
 
@@ -64,11 +65,13 @@ $card-shadow: none
 
 =branded-button($bgColor)
   background-color: $bgColor
-  border: none
   color: white
 
   &:hover
     background-color: darken($bgColor, 5%)
+
+.is-version-dropdown-number
+  margin-right: 1rem
 
 .button
   &.is-twitter

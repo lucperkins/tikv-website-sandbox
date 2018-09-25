@@ -1,0 +1,5 @@
+{{- $versions := sort (readDir "content/docs") "Name" "desc" }}
+{{- $latest   := (index $versions 0).Name }}
+/docs     /docs/{{ $latest }}
+/docs/latest     /docs/{{ $latest }}
+/docs/latest/*     /docs/{{ $latest }}/:splat

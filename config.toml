@@ -28,3 +28,13 @@ css = ["syntax"]
 [params.socialmedia]
 twitter = "tikv"
 github  = "https://github.com/tikv/tikv"
+
+[outputs]
+home = ["HTML", "REDIRECTS"]
+
+[outputFormats.REDIRECTS]
+mediaType = "text/netlify"
+baseName = "_redirects"
+
+[mediaTypes."text/netlify"]
+delimiter = ""

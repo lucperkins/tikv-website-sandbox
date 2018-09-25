@@ -1,6 +1,9 @@
-{{- $docs        := where .Site.Pages "Section" "docs" }}
-{{- $description := .Params.description }}
-{{- $currentUrl  := .URL }}
+{{- $docs           := where .Site.Pages "Section" "docs" }}
+{{- $description    := .Params.description }}
+{{- $currentUrl     := .URL }}
+{{- $versions       := sort (readDir "content/docs") "Name" "desc" }}
+{{- $latest         := (index $versions 0).Name }}
+{{- $currentVersion := index (split .File.Path "/") 1 }}
 <section class="hero is-small is-primary">
   <div class="hero-body">
     <div class="container">
@@ -21,11 +24,15 @@
         <ul>
           {{- range $docs }}
           {{- $isCurrentPage := eq .URL $currentUrl }}
+          {{- $version := index (split .File.Path "/") 1 }}
+          {{- $isCurrentVersion := eq $version $currentVersion }}
+          {{- if $isCurrentVersion }}
           <li{{ if $isCurrentPage }} class="is-active"{{ end }}>
             <a href="{{ .URL }}">
               {{ .Title }}
             </a>
           </li>
+          {{- end }}
           {{- end }}
         </ul>
       </div>

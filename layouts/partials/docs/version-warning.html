@@ -1,0 +1,13 @@
+{{- $versions       := sort (readDir "content/docs") "Name" "desc" }}
+{{- $latest         := (index $versions 0).Name }}
+{{- $currentVersion := index (split .File.Path "/") 1 }}
+{{- $notLatest      := ne $latest $currentVersion }}
+{{- if $notLatest }}
+{{- $latestUrl := replace .URL $currentVersion $latest | relURL }}
+<div class="notification is-info">
+  This document is for version <strong>{{ $currentVersion }}</strong>, which is no longer the latest version.
+  Click <a href="{{ $latestUrl }}">here</a> to see the latest version (which is <strong>{{ $latest }}</strong>).
+</div>
+
+<hr class="hr" />
+{{- end }}

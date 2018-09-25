@@ -6,6 +6,8 @@
     <div class="columns">
       <div class="column">
         <div class="content">
+          {{ partial "docs/version-warning.html" . }}
+
           {{ .Content }}
         </div>
       </div>
