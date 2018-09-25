@@ -7,7 +7,7 @@
 {{- $versions       := sort (readDir "content/docs") "Name" "desc" }}
 {{- $latest         := (index $versions 0).Name }}
 {{- $currentVersion := index (split .File.Path "/") 1 }}
-<nav class="navbar is-fixed-top{{ if .IsHome }} has-background-white-ter{{ else }} has-shadow{{ end }}">
+<nav class="navbar is-black is-fixed-top">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ .Site.BaseURL | relURL }}">
@@ -22,11 +22,19 @@
     </div>
 
     <div class="navbar-menu">
-      <div class="navbar-end">
+      <div class="navbar-start">
         {{- if $isDocs }}
+        {{- $isLatest := eq $currentVersion $latest }}
+        {{- $versionButtonType := cond ($isLatest) "success" "warning" }}
+        {{- $versionButtonText := cond ($isLatest) "latest" "older" }}
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link">
-            <strong>v{{ $currentVersion }}</strong>
+            <span class="is-version">
+              <strong class="is-size-5">{{ $currentVersion }}</strong>
+            </span>
+            <span class="button is-{{ $versionButtonType }} is-small">
+              {{ $versionButtonText }}
+            </span>
           </a>
 
           <div class="navbar-dropdown">
@@ -34,19 +42,25 @@
             {{- $version := .Name }}
             {{- $isLatest := eq $version $latest }}
             <a class="navbar-item" href="/docs/{{ $version }}">
-              <span class="is-version-dropdown-number">
+              <span class="is-version">
                 {{ $version }}
               </span>
               {{- if $isLatest }}
-              (<strong>latest</strong>)
-              {{ end }}
+              <span class="button is-success is-small">
+                latest
+              </span>
+              {{- end }}
             </a>
             {{- end }}
           </div>
         </div>
-        {{- else }}
+        {{- end }}
+      </div>
+
+      <div class="navbar-end">
+        {{- if not $isDocs }}
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/docs">
+          <a class="navbar-link" href="/docs/{{ $latest }}">
             Docs
           </a>
 

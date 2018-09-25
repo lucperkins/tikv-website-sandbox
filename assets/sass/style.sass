@@ -14,7 +14,6 @@ $twitter-blue: #1da1f3
 // TiKV variables
 $tikv-red: #ed1a3b
 $tikv-blue: #353558
-$docs-top-margin: 1.5rem
 
 @import "bulma/sass/utilities/initial-variables"
 @import "bulma/sass/utilities/functions"
@@ -29,10 +28,16 @@ $navbar-burger-color: $blue
 $family-sans-serif: "{{ $fontFamily }}", sans-serif
 $card-shadow: none
 $button-border-color: none
+$notification-padding: 1rem 1rem
 
 @import "bulma/sass/utilities/derived-variables"
 
 @import "bulma/bulma"
+
+// Chroma syntax highlighting variables
+$chroma-padding: .5rem .75rem
+$chroma-bg-color: $black
+$chroma-font-size: 1rem
 
 .is-definition
   color: $info
@@ -57,9 +62,6 @@ $button-border-color: none
 .is-footer-image
   +logo(30%, 35%)
 
-.is-docs-article
-  margin-top: $docs-top-margin
-
 .has-text-red
   color: $red
 
@@ -70,15 +72,15 @@ $button-border-color: none
   &:hover
     background-color: darken($bgColor, 5%)
 
-.is-version-dropdown-number
-  margin-right: 1rem
-
 .button
   &.is-twitter
     +branded-button($twitter-blue)
 
   &.is-github
-    +branded-button(black)
+    //+branded-button(black)
+
+.navbar .is-version
+  margin-right: .5rem
 
 .content
   figure
@@ -109,3 +111,9 @@ $button-border-color: none
 
   .main
     flex: 1
+
+.highlight .chroma
+  padding: $chroma-padding
+  background-color: $chroma-bg-color
+  font-size: $chroma-font-size
+  line-height: 100%
