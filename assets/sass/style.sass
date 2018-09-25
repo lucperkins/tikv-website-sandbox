@@ -33,6 +33,13 @@ $card-shadow: none
 
 @import "bulma/bulma"
 
+.is-definition
+  color: $info
+  font-weight: 600
+
+  &:hover
+    cursor: help
+
 =logo($min, $max)
   @extend .image
   margin: 0 auto
@@ -77,8 +84,9 @@ $card-shadow: none
       font-size: 1.25rem
       font-weight: bold
 
-  ol li .highlight
-    margin-bottom: 1rem
+  ol, ul
+    li .highlight
+      margin-bottom: 1rem
 
 .footer
   &.is-dark

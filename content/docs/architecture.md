@@ -13,7 +13,7 @@ TiKV provides two APIs that you can use to interact with it:
 API | Description | Atomicity | Use when...
 :---|:------------|:----------|:-----------
 [Raw](apis#raw) | A lower-level key-value API for interacting directly with individual key-value pairs. | Single key | Your application doesn't require distributed transactions or multi-version concurrency control (MVCC)
-[Transactional](apis#transactional) | A higher-level key-value API | Multiple keys | Your 
+[Transactional](apis#transactional) | A higher-level key-value API that provides ACID semantics | Multiple keys | Your 
 
 ## Diagram
 

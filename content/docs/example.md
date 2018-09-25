@@ -7,7 +7,6 @@ draft: true
 
 This example page is used for working on the site. It's set to "draft" status, so it won't be deployed with the site build.
 
-
 ## Admonitions
 
 {{< warning >}}
