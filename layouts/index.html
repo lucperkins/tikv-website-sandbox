@@ -4,6 +4,8 @@
 {{- $logo      := printf "img/logos/%s" .Site.Params.logos.home | relURL }}
 {{- $cncfLogo  := "img/logos/cncf-color.png" | relURL }}
 {{- $features  := .Site.Data.features }}
+{{- $versions  := sort (readDir "content/docs") "Name" "desc" }}
+{{- $latest    := (index $versions 0).Name }}
 <section class="hero">
   <div class="hero-head">
     {{ partial "navbar.html" . }}
@@ -15,22 +17,22 @@
 
       <br />
 
-      <p class="title is-size-2 is-size-3-touch is-size-4-mobile is-spaced">
-        <span class="has-text-weight-bold">{{ .Site.Title }}</span> <span class="has-text-primary has-text-weight-bold">:</span> <span class="has-text-grey">{{ $shortDesc }}</span>
+      <p class="title is-size-1-desktop is-size-3-touch is-spaced">
+        <span class="has-text-weight-bold">{{ .Site.Title }}</span> <span class="has-text-primary has-text-weight-bold">:</span> <span class="has-text-grey has-text-weight-light">{{ $shortDesc }}</span>
       </p>
 
-      <p class="subtitle is-size-3 is-size-4-mobile">
+      <p class="subtitle is-size-3 is-size-4-tablet is-size-5-mobile">
         {{ $longDesc }}
       </p>
 
       <div class="buttons is-centered">
-        <a class="button is-large is-rounded is-primary" href="/docs/getting-started">
+        <a class="button is-medium is-rounded is-primary" href="/docs/{{ $latest }}/getting-started">
           Getting started
         </a>
-        <a class="button is-large is-rounded is-primary" href="/docs/architecture">
+        <a class="button is-medium is-rounded is-primary" href="/docs/{{ $latest }}/architecture">
           Architecture
         </a>
-        <a class="button is-large is-rounded is-primary" href="/docs/apis">
+        <a class="button is-medium is-rounded is-primary" href="/docs/{{ $latest }}/apis">
           APIs
         </a>
       </div>
@@ -72,8 +74,8 @@
 
 <section class="section">
   <div class="container has-text-centered">
-    <p class="title is-size-4 is-size-6-mobile">
-      We are a <a>Cloud Native Computing Foundation</a> member project.
+    <p class="title is-size-4 is-size-5-mobile">
+     TiKV is a <a>Cloud Native Computing Foundation</a> member project
     </p>
 
     <img class="image is-cncf-logo" src="{{ $cncfLogo }}">

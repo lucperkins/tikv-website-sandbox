@@ -1,8 +1,6 @@
 ---
 title: Oldest blog post
-author:
-  name: Luc Perkins
-  description: Just a guy, dude.
+author: Luc Perkins
 date: 2018-09-01
 ---
 

@@ -8,10 +8,7 @@
       </h2>
       {{- with .Params.author }}
       <span class="subtitle is-4">
-        {{ .name }} &ndash;
-      </span>
-      <span class="subtitle is-6">
-        {{ $date }}
+        {{ . }} &ndash; {{ $date }}
       </span>
       {{- end }}
     </div>

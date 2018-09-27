@@ -27,7 +27,7 @@
         {{- $isLatest := eq $currentVersion $latest }}
         {{- $versionButtonType := cond ($isLatest) "success" "warning" }}
         {{- $versionButtonText := cond ($isLatest) "latest" "older" }}
-        <div class="navbar-item has-dropdown is-hoverable">
+        <div class="navbar-item has-dropdown is-hidden-touch is-hoverable">
           <a class="navbar-link">
             <span class="is-version">
               <strong class="is-size-5">{{ $currentVersion }}</strong>
@@ -51,6 +51,11 @@
               </span>
               {{- end }}
             </a>
+            {{- if $isLatest }}
+
+            <hr class="navbar-divider">
+            
+            {{- end }}
             {{- end }}
           </div>
         </div>
@@ -58,32 +63,30 @@
       </div>
 
       <div class="navbar-end">
-        {{- if not $isDocs }}
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/docs/{{ $latest }}">
-            Docs
+            Docs foo
           </a>
 
-          <div class="navbar-dropdown">
+          <div class="navbar-dropdown is-hidden-touch">
             {{- range $docs }}
             {{- $version := index (split .File.Path "/") 1 }}
             {{- $isLatest := eq $version $latest }}
             {{- if $isLatest }}
             <a class="navbar-item" href="{{ .URL }}">
-              {{ .Title }}
+              {{ .Title }} {{ .RSSLink }} foo
             </a>
             {{- end }}
             {{- end }}
           </div>
         </div>
-        {{- end }}
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/blog">
             Blog
           </a>
 
-          <div class="navbar-dropdown">
+          <div class="navbar-dropdown is-hidden-touch">
             {{- range $blogPosts }}
             <a class="navbar-item" href="{{ .URL }}">
               {{ .Title }}

@@ -1,10 +1,17 @@
-{{- $src   := index .Params "src" | relURL }}
-{{- $width := index .Params "width" | default 60 }}
+{{- $imgSrcSet := or (isset .Params "src") (isset .Params "id") }}
+{{- if not $imgSrcSet }}
+{{- errorf "You must set either an id or an src in the figure at content/%s" $.Page.File.Path }}
+{{- end }}
+{{- $src   := cond (isset .Params "id") (printf "https://www.lucidchart.com/publicSegments/view/%s/image.png" (index .Params "id")) (index .Params "src" | relURL) }}
+{{- $width := index .Params "width" }}
+{{- $num   := index .Params "number" }}
 <figure>
-  <img src="{{ $src }}"{{ with (index .Params "alt") }} alt="{{ . }}"{{ end }} width="{{ $width }}%">
+  <a target="_blank" href="{{ $src }}">
+    <img src="{{ $src }}"{{ with (index .Params "alt") }} alt="{{ . }}"{{ end }}{{ with $width }} width="{{ . }}%"{{ end }}>
+  </a>
   {{- with (index .Params "caption") }}
-  <figcaption>
-    {{ . | markdownify }}
+  <figcaption class="is-size-3 is-size-4-mobile">
+    {{ with $num }}Figure {{ . }}. {{ end }}{{ . | markdownify }}
   </figcaption>
   {{- end }}
 </figure>
