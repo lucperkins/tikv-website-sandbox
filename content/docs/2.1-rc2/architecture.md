@@ -12,12 +12,30 @@ TiKV provides two APIs that you can use to interact with it:
 
 API | Description | Atomicity | Use when...
 :---|:------------|:----------|:-----------
-[Raw](apis#raw) | A lower-level key-value API for interacting directly with individual key-value pairs. | Single key | Your application doesn't require distributed transactions or multi-version concurrency control (MVCC)
-[Transactional](apis#transactional) | A higher-level key-value API that provides ACID semantics | Multiple keys | Your 
+[Raw](../apis#raw) | A lower-level key-value API for interacting directly with individual key-value pairs. | Single key | Your application doesn't require distributed transactions or multi-version concurrency control (MVCC)
+[Transactional](../apis#transactional) | A higher-level key-value API that provides ACID semantics | Multiple keys | Your 
 
-## Diagram
+## Basic architecture
 
-{{< figure src="https://www.lucidchart.com/publicSegments/view/d6ff8e03-ed36-46b3-83b3-a1ce79db03a4/image.png" caption="The architecture of TiKV" alt="TiKV architecture diagram" >}}
+The overall architecture of TiKV is illustrated in **Figure 1** below:
+
+{{< figure
+    id="d6ff8e03-ed36-46b3-83b3-a1ce79db03a4"
+    caption="The architecture of TiKV"
+    alt="TiKV architecture diagram"
+    width="70"
+    number="1" >}}
+
+## TiKV instance
+
+The architecture of each TiKV instance is illustrated in **Figure 2** below:
+
+{{< figure
+    id="f371145f-126d-42e0-99fe-2c06080419a9"
+    caption="TiKV instance architecture"
+    width="60"
+    number="2" >}}
+
 
 ## Placement driver (PD) {#placement-driver}
 
@@ -34,7 +52,7 @@ TiKV's transaction model provides:
 
 ## Store
 
-There is a RocksDB database within each Store and it stores data into the local disk.
+There is a [RocksDB](https://rocksdb.org) database within each Store and it stores data into the local disk.
 
 ## Region
 
