@@ -1,11 +1,11 @@
-{{- $isDocs             := eq .Section "docs" }}
-{{- $logo               := printf "img/logos/%s" .Site.Params.logos.navbar | relURL }}
-{{- $twitter            := .Site.Params.socialmedia.twitter }}
-{{- $github             := .Site.Params.socialmedia.github }}
-{{- $docs               := where .Site.RegularPages "Section" "docs" }}
-{{- $blogPosts          := where .Site.RegularPages "Section" "blog" }}
-{{- $versions           := sort (readDir "content/docs") "Name" "desc" }}
-{{- $latest             := (index $versions 0).Name }}
+{{- $isDocs         := eq .Section "docs" }}
+{{- $logo           := printf "img/logos/%s" .Site.Params.logos.navbar | relURL }}
+{{- $twitter        := .Site.Params.socialmedia.twitter }}
+{{- $github         := .Site.Params.socialmedia.github }}
+{{- $docs           := where .Site.RegularPages "Section" "docs" }}
+{{- $blogPosts      := where .Site.RegularPages "Section" "blog" }}
+{{- $versions       := sort (readDir "content/docs") "Name" "desc" }}
+{{- $currentVersion := (index $versions 0).Name }}
 <nav class="navbar is-black is-fixed-top">
   <div class="container">
     <div class="navbar-brand">
@@ -22,34 +22,32 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        {{- if $isDocs }}
         <div class="navbar-item">
           <span class="is-version">
-            Version:
+            {{- if $isDocs }}
+            Version
+            {{- else }}
+            Latest
+            {{- end }}
           </span>
-          <span class="is-size-5 has-text-weight-bold">
-            {{ $latest }}
+          <span class="button has-text-weight-bold">
+            {{ $currentVersion }}
           </span>
         </div>
-        {{- end }} <!-- if $isDocs -->
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/docs/{{ $latest }}">
+          <a class="navbar-link" href="/docs/{{ $currentVersion }}">
             Docs
           </a>
 
           <div class="navbar-dropdown is-hidden-touch">
             {{- range $docs }}
-            {{- $version := index (split .File.Path "/") 1 }}
-            {{- $isLatest := eq $version $latest }}
-            {{- if $isLatest }}
             <a class="navbar-item" href="{{ .URL }}">
               {{ .Title }}
             </a>
-            {{- end }}
-            {{- end }}
+            {{- end }} <!-- range $docs -->
           </div>
         </div>
 
