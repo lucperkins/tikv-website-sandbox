@@ -3,14 +3,14 @@
 {{- $currentUrl     := .URL }}
 {{ partial "navbar.html" . }}
 
-<section class="hero is-small is-primary">
+<section class="hero is-primary">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title{{ if $description }} is-spaced{{ end }}">
+      <h1 class="title is-size-1 is-size-2-mobile{{ if $description }} is-spaced{{ end }}">
         {{ .Title }}
       </h1>
       {{- with $description }}
-      <h2 class="subtitle">
+      <h2 class="subtitle is-size-3 is-size-4-mobile">
         {{ . }}
       </h2>
       {{- end }}
@@ -18,7 +18,7 @@
   </div>
 
   <div class="hero-foot">
-    <nav class="tabs is-boxed">
+    <nav class="tabs is-medium is-boxed">
       <div class="container">
         <ul>
           {{- range $docs }}

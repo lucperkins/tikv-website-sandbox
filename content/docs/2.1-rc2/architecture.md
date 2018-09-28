@@ -10,7 +10,9 @@ This page discusses the core concepts and architecture behind TiKV, including:
 * The basic [system architecture](#system) underlying TiKV
 * The anatomy of each [instance](#instance) in a TiKV installation
 * The role of core system components, including the [Placement Driver](#placement-driver), [Store](#store), [Region](#region), and [Node](#node)
-* 
+* TiKV's [transaction model](#transactions)
+* The role of the [Raft consensus algorithm](#raft) in TiKV
+* The [origins](#origins) of TiKV
 
 ## APIs
 
@@ -49,15 +51,6 @@ The architecture of each TiKV instance is illustrated in **Figure 2** below:
 
 The TiKV placement driver is the cluster manager of TiKV, which periodically checks replication constraints to balance load and data automatically across nodes and regions in a process called **auto-sharding**.
 
-## Transaction model
-
-TiKV's transaction model is similar to that of Google's [Percolator](https://ai.google/research/pubs/pub36726), a system built for processing updates to large data sets. Percolator uses an incremental update model in place of a batch-based model.
-
-TiKV's transaction model provides:
-
-* **Snapshot isolation** with lock, with semantics analogous to `SELECT ... FOR UPDATE` in SQL
-* Externally consistent reads and writes in distributed transactions
-
 ## Store
 
 There is a [RocksDB](https://rocksdb.org) database within each Store and it stores data into the local disk.
@@ -72,14 +65,19 @@ A TiKV **Node** is just a physical node in the cluster, which could be a virtual
 
 When a Node starts, the metadata for the Node, Store, and Region is recorded into the Placement Driver. The status of each Region and Store is regularly reported to the PD.
 
+## Transaction model {#transactions}
+
+TiKV's transaction model is similar to that of Google's [Percolator](https://ai.google/research/pubs/pub36726), a system built for processing updates to large data sets. Percolator uses an incremental update model in place of a batch-based model.
+
+TiKV's transaction model provides:
+
+* **Snapshot isolation** with lock, with semantics analogous to `SELECT ... FOR UPDATE` in SQL
+* Externally consistent reads and writes in distributed transactions
+
 ## Raft
 
 Data is distributed across TiKV instances via the [Raft consensus algorithm](https://raft.github.io/), which is based on the so-called [Raft paper](https://raft.github.io/raft.pdf) ("In Search of an Understandable Consensus Algorithm") from [Diego Ongaro](https://ongardie.net/diego/) and [John Ousterhout](https://web.stanford.edu/~ouster/cgi-bin/home.php).
 
-## The origins of TiKV
+## The origins of TiKV {#origins}
 
 TiKV was originally created by [PingCAP](https://pingcap.com) to complement [TiDB](https://github.com/pingcap/tidb), a distributed [HTAP](https://en.wikipedia.org/wiki/Hybrid_transactional/analytical_processing_(HTAP)) database compatible with the [MySQL protocol](https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_PROTOCOL.html).
-
-## Programming languages
-
-Most of TiKV is written in [Rust](https://rust-lang.org), including the storage engine. The [Placement Driver](#placement-driver), however, is written in [Go](https://golang.org).
