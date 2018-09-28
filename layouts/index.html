@@ -1,12 +1,12 @@
 {{ define "main" }}
 {{- $shortDesc := .Site.Params.description.brief | markdownify }}
 {{- $longDesc  := .Site.Params.description.long | markdownify }}
-{{- $logo      := printf "img/logos/%s" .Site.Params.logos.home | relURL }}
+{{- $logo      := .Site.Params.logos.color }}
 {{- $cncfLogo  := "img/logos/cncf-color.png" | relURL }}
 {{- $features  := .Site.Data.features }}
 {{- $versions  := sort (readDir "content/docs") "Name" "desc" }}
 {{- $latest    := (index $versions 0).Name }}
-<section class="hero">
+<section class="hero is-fullheight">
   <div class="hero-head">
     {{ partial "navbar.html" . }}
   </div>

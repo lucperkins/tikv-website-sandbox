@@ -1,11 +1,7 @@
-{{- $fonts              := .Site.Params.fonts }}
-{{- $fontSansSerif      := $fonts.sansserif }}
-{{- $fontMonospace      := $fonts.monospace }}
 {{- $fontAwesomeVersion := .Site.Params.assets.fontAwesomeVersion }}
-{{- $fontUrl            := printf "https://fonts.googleapis.com/icon?family=%s:300,400,600,700|%s:400" (replace $fontSansSerif " " "+") (replace $fontMonospace " " "+") }}
 {{- $fontAwesomeUrl     := printf "https://use.fontawesome.com/releases/v%s/css/all.css" $fontAwesomeVersion }}
 @charset "utf-8"
-@import url({{ $fontUrl }})
+@import url(https://fonts.googleapis.com/icon?family=Titillium+Web:300,400,600,700|Inconsolata:300,400,600,700)
 @import url({{ $fontAwesomeUrl }})
 
 // Misc
@@ -26,8 +22,8 @@ $secondary: $blue
 $link: $red
 $danger: $orange
 $navbar-burger-color: $blue
-$family-sans-serif: "{{ $fontSansSerif }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
-$family-monospace: "{{ $fontMonospace }}", monosapce
+$family-sans-serif: "Titillium Web", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$family-monospace: "Inconsolata", monosapce
 $card-shadow: none
 $button-border-color: none
 $notification-padding: 1rem 1rem
@@ -82,7 +78,7 @@ $chroma-font-size: 1rem
     +branded-button($twitter-blue)
 
   &.is-github
-    //+branded-button(black)
+    +branded-button($black)
 
 .navbar .is-version
   margin-right: 1rem
@@ -122,7 +118,6 @@ $chroma-font-size: 1rem
       border-radius: $radius-small
 
 .highlight .chroma
-  font-family: "{{ $fontMonospace }}"
   padding: $chroma-padding
   background-color: $chroma-bg-color
   font-size: $chroma-font-size

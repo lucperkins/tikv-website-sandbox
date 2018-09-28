@@ -16,9 +16,8 @@ sansserif = "Titillium Web"
 monospace = "Inconsolata"
 
 [params.logos]
-navbar = "horizontal/white/tikv-horizontal-white.png"
-home   = "horizontal/color/tikv-horizontal-color.png"
-footer = "horizontal/white/tikv-horizontal-white.png"
+white = "img/logos/horizontal/white/tikv-horizontal-white.png"
+color = "img/logos/horizontal/color/tikv-horizontal-color.png"
 
 [params.assets]
 fontAwesomeVersion = "5.3.1"

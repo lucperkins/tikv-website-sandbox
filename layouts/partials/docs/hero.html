@@ -1,6 +1,8 @@
-{{- $docs           := where .Site.Pages "Section" "docs" }}
+{{- $docs           := where .Site.RegularPages "Section" "docs" }}
 {{- $description    := .Params.description }}
 {{- $currentUrl     := .URL }}
+{{ partial "navbar.html" . }}
+
 <section class="hero is-small is-primary">
   <div class="hero-body">
     <div class="container">
