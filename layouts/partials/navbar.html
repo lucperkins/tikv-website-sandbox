@@ -9,7 +9,7 @@
 {{- $blogPosts      := where .Site.RegularPages "Section" "blog" }}
 {{- $versions       := sort (readDir "content/docs") "Name" "desc" }}
 {{- $currentVersion := (index $versions 0).Name }}
-<nav class="navbar is-fixed-top{{ if $isHome }} has-background-white{{ else }} is-black{{ end }}">
+<nav class="navbar is-fixed-top{{ if $isHome }} has-shadow has-background-white{{ else }} is-black{{ end }}">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item" href="{{ .Site.BaseURL | relURL }}">
