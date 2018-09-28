@@ -26,9 +26,9 @@
           <span class="is-version">
             {{- if $isDocs }}
             Version
-            {{- else }}
+            {{- else }} <!-- if $isDocs -->
             Latest
-            {{- end }}
+            {{- end }} <!-- if $isDocs -->
           </span>
           <span class="button has-text-weight-bold">
             {{ $currentVersion }}
@@ -61,7 +61,7 @@
             <a class="navbar-item" href="{{ .URL }}">
               {{ .Title }}
             </a>
-            {{- end }}
+            {{- end }} <!-- range $blogPosts -->
           </div>
         </div>
 
