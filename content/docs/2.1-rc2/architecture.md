@@ -1,10 +1,16 @@
 ---
-title: Architecture
+title: Concepts and architecture
 description: How TiKV works and how it was built
 weight: 3
 ---
 
-This page discusses the architecture of TiKV.
+This page discusses the core concepts and architecture behind TiKV, including:
+
+* The [APIs](#apis) and [client libraries](#clients) that applications can use to interact with TiKV
+* The basic [system architecture](#system) underlying TiKV
+* The anatomy of each [instance](#instance) in a TiKV installation
+* The role of core system components, including the [Placement Driver](#placement-driver), [Store](#store), [Region](#region), and [Node](#node)
+* 
 
 ## APIs
 
@@ -12,10 +18,12 @@ TiKV provides two APIs that you can use to interact with it:
 
 API | Description | Atomicity | Use when...
 :---|:------------|:----------|:-----------
-[Raw](../apis#raw) | A lower-level key-value API for interacting directly with individual key-value pairs. | Single key | Your application doesn't require distributed transactions or multi-version concurrency control (MVCC)
-[Transactional](../apis#transactional) | A higher-level key-value API that provides ACID semantics | Multiple keys | Your 
+[Raw](../apis#raw) | A lower-level key-value API for interacting directly with individual key-value pairs. | Single key | Your application doesn't require distributed transactions or multi-version concurrency control (**MVCC**)
+[Transactional](../apis#transactional) | A higher-level key-value API that provides ACID semantics | Multiple keys | Your application requires distributed transactions and/or MVCC
 
-## Basic architecture
+## Client libraries {#clients}
+
+## System architecture {#system}
 
 The overall architecture of TiKV is illustrated in **Figure 1** below:
 
@@ -26,7 +34,7 @@ The overall architecture of TiKV is illustrated in **Figure 1** below:
     width="70"
     number="1" >}}
 
-## TiKV instance
+## TiKV instance {#instance}
 
 The architecture of each TiKV instance is illustrated in **Figure 2** below:
 
@@ -66,5 +74,12 @@ When a Node starts, the metadata for the Node, Store, and Region is recorded int
 
 ## Raft
 
+Data is distributed across TiKV instances via the [Raft consensus algorithm](https://raft.github.io/), which is based on the so-called [Raft paper](https://raft.github.io/raft.pdf) ("In Search of an Understandable Consensus Algorithm") from [Diego Ongaro](https://ongardie.net/diego/) and [John Ousterhout](https://web.stanford.edu/~ouster/cgi-bin/home.php).
+
 ## The origins of TiKV
 
+TiKV was originally created by [PingCAP](https://pingcap.com) to complement [TiDB](https://github.com/pingcap/tidb), a distributed [HTAP](https://en.wikipedia.org/wiki/Hybrid_transactional/analytical_processing_(HTAP)) database compatible with the [MySQL protocol](https://dev.mysql.com/doc/dev/mysql-server/latest/PAGE_PROTOCOL.html).
+
+## Programming languages
+
+Most of TiKV is written in [Rust](https://rust-lang.org), including the storage engine. The [Placement Driver](#placement-driver), however, is written in [Go](https://golang.org).

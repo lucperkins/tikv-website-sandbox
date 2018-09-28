@@ -2,7 +2,7 @@
 {{- $logo           := printf "img/logos/%s" .Site.Params.logos.navbar | relURL }}
 {{- $twitter        := .Site.Params.socialmedia.twitter }}
 {{- $github         := .Site.Params.socialmedia.github }}
-{{- $docs           := where .Site.RegularPages "Section" "docs" }}
+{{- $docs           := where .Site.Pages "Section" "docs" }}
 {{- $blogPosts      := where .Site.RegularPages "Section" "blog" }}
 {{- $versions       := sort (readDir "content/docs") "Name" "desc" }}
 {{- $currentVersion := (index $versions 0).Name }}

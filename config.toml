@@ -12,8 +12,7 @@ brief = "A distributed transactional key-value database"
 long = "Based on the design of [Google Spanner](https://ai.google/research/pubs/pub39966) and [HBase](https://hbase.apache.org), but simpler to manage and without dependencies on any distributed filesystem"
 
 [params.fonts]
-sansserif = "Times New Roman"
-#sansserif = "Titillium Web"
+sansserif = "Titillium Web"
 monospace = "Inconsolata"
 
 [params.logos]
