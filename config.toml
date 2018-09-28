@@ -11,9 +11,10 @@ favicon = "tikv-favicon.png"
 brief = "A distributed transactional key-value database"
 long = "Based on the design of [Google Spanner](https://ai.google/research/pubs/pub39966) and [HBase](https://hbase.apache.org), but simpler to manage and without dependencies on any distributed filesystem"
 
-[params.font]
-family = "Titillium Web"
-sizes  = [300, 400, 600, 700]
+[params.fonts]
+sansserif = "Times New Roman"
+#sansserif = "Titillium Web"
+monospace = "Inconsolata"
 
 [params.logos]
 navbar = "horizontal/white/tikv-horizontal-white.png"

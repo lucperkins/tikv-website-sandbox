@@ -1,8 +1,8 @@
-{{- $font               := .Site.Params.font }}
-{{- $fontFamily         := $font.family }}
-{{- $fontSizes          := $font.sizes }}
+{{- $fonts              := .Site.Params.fonts }}
+{{- $fontSansSerif      := $fonts.sansserif }}
+{{- $fontMonospace      := $fonts.monospace }}
 {{- $fontAwesomeVersion := .Site.Params.assets.fontAwesomeVersion }}
-{{- $fontUrl            := printf "https://fonts.googleapis.com/icon?family=%s:%s" (replace $fontFamily " " "+") (delimit $fontSizes ",") }}
+{{- $fontUrl            := printf "https://fonts.googleapis.com/icon?family=%s:300,400,600,700|%s:400" (replace $fontSansSerif " " "+") (replace $fontMonospace " " "+") }}
 {{- $fontAwesomeUrl     := printf "https://use.fontawesome.com/releases/v%s/css/all.css" $fontAwesomeVersion }}
 @charset "utf-8"
 @import url({{ $fontUrl }})
@@ -26,7 +26,8 @@ $secondary: $blue
 $link: $red
 $danger: $orange
 $navbar-burger-color: $blue
-$family-sans-serif: "{{ $fontFamily }}", sans-serif
+$family-sans-serif: "{{ $fontSansSerif }}", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$family-monospace: "{{ $fontMonospace }}", monosapce
 $card-shadow: none
 $button-border-color: none
 $notification-padding: 1rem 1rem

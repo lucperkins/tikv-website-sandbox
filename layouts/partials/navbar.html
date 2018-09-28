@@ -24,13 +24,9 @@
       <div class="navbar-start">
         <div class="navbar-item">
           <span class="is-version">
-            {{- if $isDocs }}
             Version
-            {{- else }} <!-- if $isDocs -->
-            Latest
-            {{- end }} <!-- if $isDocs -->
           </span>
-          <span class="button has-text-weight-bold">
+          <span class="button has-text-weight-bold is-success">
             {{ $currentVersion }}
           </span>
         </div>
@@ -51,6 +47,7 @@
           </div>
         </div>
 
+        <!--
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/blog">
             Blog
@@ -61,9 +58,10 @@
             <a class="navbar-item" href="{{ .URL }}">
               {{ .Title }}
             </a>
-            {{- end }} <!-- range $blogPosts -->
+            {{- end }}
           </div>
         </div>
+        -->
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/blog">
