@@ -43,6 +43,7 @@ The architecture of each TiKV instance is illustrated in **Figure 2** below:
 {{< figure
     id="f371145f-126d-42e0-99fe-2c06080419a9"
     caption="TiKV instance architecture"
+    alt="TiKV instance architecture diagram"
     width="60"
     number="2" >}}
 

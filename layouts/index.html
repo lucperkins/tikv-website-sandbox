@@ -4,8 +4,6 @@
 {{- $logo      := .Site.Params.logos.color }}
 {{- $cncfLogo  := "img/logos/cncf-color.png" | relURL }}
 {{- $features  := .Site.Data.features }}
-{{- $versions  := sort (readDir "content/docs") "Name" "desc" }}
-{{- $latest    := (index $versions 0).Name }}
 <section class="hero is-fullheight">
   <div class="hero-head">
     {{ partial "navbar.html" . }}
@@ -13,7 +11,7 @@
 
   <div class="hero-body has-background-white-ter">
     <div class="container has-text-centered">
-      <img class="is-home-logo" src="{{ $logo }}">
+      <img class="is-home-logo" src="{{ $logo }}" alt="Main TiKV logo">
 
       <br />
 
@@ -34,14 +32,11 @@
       </p>
 
       <div class="buttons is-centered">
-        <a class="button is-medium is-rounded is-large is-primary" href="/docs/{{ $latest }}/getting-started">
+        <a class="button is-medium is-rounded is-large is-primary" href="/docs/getting-started">
           Getting started
         </a>
-        <a class="button is-medium is-rounded is-large is-primary" href="/docs/{{ $latest }}/architecture">
+        <a class="button is-medium is-rounded is-large is-primary" href="/docs/architecture">
           Architecture
-        </a>
-        <a class="button is-medium is-rounded is-large is-primary" href="/docs/{{ $latest }}/apis">
-          APIs
         </a>
       </div>
     </div>
@@ -86,7 +81,7 @@
      TiKV is a <a>Cloud Native Computing Foundation</a> member project
     </p>
 
-    <img class="image is-cncf-logo" src="{{ $cncfLogo }}">
+    <img class="image is-cncf-logo" src="{{ $cncfLogo }}" alt="Cloud Native Computing Foundation logo">
   </div>
 </section>
 {{ end }}
