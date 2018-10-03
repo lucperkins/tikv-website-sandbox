@@ -1,11 +1,12 @@
 title = "TiKV"
-baseURL = "https://tikv.netlify.com"
+baseURL = "https://tikv-website-sandbox.netlify.com"
 languageCode = "en-us"
 pygmentsCodeFences = true
 pygmentsUseClasses = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [params]
-favicon = "tikv-favicon.png"
+favicon = "favicon.png"
 
 [params.description]
 brief = "A distributed transactional key-value database"
