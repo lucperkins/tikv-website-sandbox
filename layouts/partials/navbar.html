@@ -7,8 +7,7 @@
 {{- $github         := .Site.Params.socialmedia.github }}
 {{- $docs           := where .Site.RegularPages "Section" "docs" }}
 {{- $blogPosts      := where .Site.RegularPages "Section" "blog" }}
-{{- $versions       := sort (readDir "content/docs") "Name" "desc" }}
-{{- $currentVersion := (index $versions 0).Name }}
+{{- $latest         := .Site.Params.versions.latest }}
 <nav class="navbar is-fixed-top{{ if $isHome }} has-shadow has-background-white{{ else }} is-black{{ end }}">
   <div class="container">
     <div class="navbar-brand">
@@ -30,17 +29,17 @@
             Version
           </span>
           <span class="is-hidden-desktop">
-            {{ $currentVersion }}
+            {{ $latest }}
           </span>
           <div class="is-navbar-version has-text-weight-bold is-hidden-touch">
-            {{ $currentVersion }}
+            {{ $latest }}
           </div>
         </div>
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/docs/{{ $currentVersion }}">
+          <a class="navbar-link" href="/docs">
             Docs
           </a>
 
@@ -52,22 +51,6 @@
             {{- end }} <!-- range $docs -->
           </div>
         </div>
-
-        <!--
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link" href="/blog">
-            Blog
-          </a>
-
-          <div class="navbar-dropdown is-hidden-touch">
-            {{- range $blogPosts }}
-            <a class="navbar-item" href="{{ .URL }}">
-              {{ .Title }}
-            </a>
-            {{- end }}
-          </div>
-        </div>
-        -->
 
         <div class="navbar-item has-dropdown is-hoverable">
           <a class="navbar-link" href="/blog">

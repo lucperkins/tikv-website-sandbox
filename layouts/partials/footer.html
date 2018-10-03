@@ -2,8 +2,7 @@
 {{- $logo      := .Site.Params.logos.white | relURL }}
 {{- $docs      := where .Site.RegularPages "Section" "docs" }}
 {{- $blogPosts := where .Site.RegularPages "Section" "blog" }}
-{{- $versions  := sort (readDir "content/docs") "Name" "desc" }}
-{{- $latest    := (index $versions 0).Name }}
+{{- $latest    := .Site.Params.versions.latest }}
 <footer class="footer is-dark">
   <div class="container">
     <div class="columns">
@@ -20,15 +19,11 @@
 
         <ul>
           {{- range $docs }}
-          {{- $version  := index (split .File.Path "/") 1 }}
-          {{- $isLatest := eq $version $latest }}
-          {{- if $isLatest }}
           <li>
             <a href="{{ .URL }}">
               {{ .Title }}
             </a>
           </li>
-          {{- end }}
           {{- end }}
         </ul>
       </div>

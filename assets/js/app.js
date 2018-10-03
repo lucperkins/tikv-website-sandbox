@@ -5,15 +5,8 @@ function navbarToggle() {
   });
 }
 
-function scrollOffset() {
-  $('.content a').click(function() {
-    window.alert("OK!");
-  });
-}
-
 $(function() {
   navbarToggle();
-  scrollOffset();
 
   console.log("Welcome to the TiKV docs!");
 });
