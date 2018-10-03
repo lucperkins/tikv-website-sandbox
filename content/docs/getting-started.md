@@ -7,10 +7,6 @@ new: true
 
 This guide describes how to quickly deploy a TiKV testing cluster using [Docker Compose](https://docs.docker.com/compose/) on a single machine. Currently, this installation method is supported only on Linux.
 
-{{< warning >}}
-Do not use Docker Compose to deploy the TiKV cluster in a production environment. For production, use [Ansible](../deployment#ansible) instead.
-{{< /warning >}}
-
 ## Prerequisites
 
 Make sure that you have the following items installed on your machine:
