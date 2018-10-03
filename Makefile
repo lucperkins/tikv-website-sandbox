@@ -1,4 +1,5 @@
 HTMLPROOFER = bundle exec htmlproofer
+A11YM       = node_modules/.bin/a11ym
 
 clean:
 	rm -rf public
@@ -13,8 +14,10 @@ develop:
 build-local:
 	hugo --baseURL "/"
 
-build-production:
+build:
 	hugo
+
+build-production: accessibility build
 
 build-preview:
 	hugo \
@@ -34,3 +37,8 @@ htmlproofer: clean build-local
 	$(HTMLPROOFER) public \
 		--allow-hash-href \
 		--http-status-ignore 403
+
+accessibility: clean build-local
+	$(A11YM) \
+		--output-directory public/accessibility \
+		https://tikv-website-sandbox.netlify.com
