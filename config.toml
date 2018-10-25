@@ -13,7 +13,7 @@ latest = "2.1-rc2"
 
 [params.description]
 brief = "A distributed transactional key-value database"
-long = "Based on the design of [Google Spanner](https://ai.google/research/pubs/pub39966) and [HBase](https://hbase.apache.org), but simpler to manage and without dependencies on any distributed filesystem"
+long = "Inspired by the design of [Google Spanner](https://ai.google/research/pubs/pub39966) and [HBase](https://hbase.apache.org) but simpler to manage and without dependencies on any distributed file system"
 
 [params.fonts]
 sansserif = "Titillium Web"
@@ -29,7 +29,7 @@ js  = ["jquery-3.3.1", "app"]
 css = ["syntax"]
 
 [params.socialmedia]
-twitter = "tikv"
+twitter = "tikvproject"
 github  = "https://github.com/tikv/tikv"
 
 [outputs]
